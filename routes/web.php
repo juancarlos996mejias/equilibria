@@ -7,6 +7,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CatalogoController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
@@ -44,6 +45,9 @@ Route::get('/catalogo', [CatalogoController::class, 'index'])->name('catalogo');
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/shop', [ProductoController::class, 'index'])->name('shop');
+
+
 
 
 

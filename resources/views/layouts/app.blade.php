@@ -14,10 +14,13 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -48,6 +51,14 @@
                             <a class="nav-link" href="{{ route('about') }}">Nosotros</a>
                         </li>
 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('catalogo') }}">Catalogo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contact') }}">Contacto</a>
+                        </li>
+
                         <li class="nav-item">
                             <select class="form-select" id="brandSelect">
                                 <option selected disabled>Marcas</option>
@@ -58,13 +69,9 @@
                             </select>
                         </li>
 
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('catalogo') }}">Catalogo</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('contact') }}">Contacto</a>
-                        </li>
+
+
+                        
                     </ul>
 
                     <!-- Lado derecho: Login, Registro y Usuario Logueado -->
@@ -82,14 +89,13 @@
                         </li>
                         @endif
                         @else
+                        @auth
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-
                                 {{ Auth::user()->name }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
                                 <div class="dropdown-divider"></div>
 
                                 <form action="{{ route('logout') }}" method="POST">
@@ -98,6 +104,8 @@
                                 </form>
                             </div>
                         </li>
+                        @endauth
+
 
                         @endguest
                     </ul>
