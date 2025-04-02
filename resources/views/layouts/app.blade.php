@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Equilibria') }}</title>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -46,8 +47,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('about') }}">Nosotros</a>
                         </li>
+
                         <li class="nav-item">
-                            <select class="form-select" aria-label="Seleccionar marca" id="brandSelect">
+                            <select class="form-select" id="brandSelect">
                                 <option selected disabled>Marcas</option>
                                 <option value="Natier">Natier</option>
                                 <option value="Two">Futuro Fungi</option>
@@ -55,8 +57,10 @@
                                 <option value="Three">opcion 4</option>
                             </select>
                         </li>
+
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('brands') }}">Catalogo</a>
+                            <a class="nav-link" href="{{ route('catalogo') }}">Catalogo</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('contact') }}">Contacto</a>
@@ -80,21 +84,21 @@
                         @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+
                                 {{ Auth::user()->name }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                                <div class="dropdown-divider"></div>
+
                                 <form action="{{ route('logout') }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="dropdown-item">Logout</button>
-                                </form>
-
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
+                                    <button type="submit" class="dropdown-item text-danger">Cerrar Sesión</button>
                                 </form>
                             </div>
                         </li>
+
                         @endguest
                     </ul>
                 </div>
@@ -106,13 +110,15 @@
         </main>
     </div>
 </body>
+
 <script>
     document.getElementById("brandSelect").addEventListener("change", function() {
         var selectedBrand = this.value;
         if (selectedBrand) {
-            window.location.href = "{{ route('brands') }}/" + encodeURIComponent(selectedBrand);
+            window.location.href = "{{ url('/brands') }}/" + encodeURIComponent(selectedBrand);
         }
     });
 </script>
+<script src="{{ asset('js/app.js') }}"></script>
 
 </html>
