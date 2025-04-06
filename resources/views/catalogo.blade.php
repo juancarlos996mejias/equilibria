@@ -21,5 +21,10 @@
             </div>
         @endforeach
     </div>
+
+     <!-- Paginación -->
+     <div class="d-flex justify-content-center mt-4">
+        {{ $productos->links() }}
+    </div>
 </div>
 @endsection

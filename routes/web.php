@@ -44,7 +44,7 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::get('/natier', [NatierController::class, 'index'])->name('natier');
 Route::get('/brands/{brand?}', [BrandController::class, 'show'])->name('brands');
 
-Route::get('/catalogo', [ProductoController::class, 'catalogo'])->name('catalogo');
+Route::get('/catalogo', [ProductoController::class, 'index'])->name('catalogo');
 
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
