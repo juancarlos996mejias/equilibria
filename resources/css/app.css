@@ -1,0 +1,87 @@
+.nav-link {
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #006838 !important; /* verde Bootstrap */
+    transform: translateY(-2px);
+}
+
+.dropdown-menu {
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+}
+.img-carousel {
+    height: 300px; /* Altura reducida */
+    object-fit: cover;
+}
+
+.titulo{
+    color:#006838;
+   
+}
+
+.titulo{
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+  }
+
+  .tituloh4{
+    font-family: "Poppins", sans-serif;
+    color: #4c95be;           /* Cambia este valor por el color que desees */
+    font-weight: 400;         /* Grosor: 400=normal, 700=negrita */
+    font-size: 1.5rem;        /* Tamaño (opcional) */
+    text-transform: uppercase;
+  }
+
+  .titulofooter{
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    color:#006838
+  }
+
+
+
+
+.btn-equilibria {
+    background-color: #4c95be !important;
+    color: white !important;
+    border: none !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.btn-equilibria:hover {
+    background-color: #46b27a !important;
+}
+
+.product-hover {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+.product-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.bg-equilibria {
+    background-color: #d1f0dc; /* Un verde muy suave, casi blanco */
+}
+
+.card-img-top {
+    transition: transform 0.3s ease;
+}
+
+.card-img-top:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+

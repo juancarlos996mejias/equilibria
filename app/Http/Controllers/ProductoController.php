@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Producto;
 
 class ProductoController extends Controller
 {
-    public function index()
-    {
-        return view('shop'); // Asegúrate de que la vista existe en resources/views/shop.blade.php
-    }
+    public function catalogo()
+{
+    $productos = Producto::all();
+    return view('catalogo', compact('productos'));
+}
 }
 

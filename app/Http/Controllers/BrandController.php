@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Brand; // Importa el modelo Brand
 
 use Illuminate\Http\Request;
 
@@ -8,12 +9,10 @@ class BrandController extends Controller
 {
     public function show($brand = null)
     {
-        if (!$brand) {
-            return redirect()->route('home'); // Redirigir si no hay marca seleccionada
-        }
-
-        return view('brands.show', compact('brand'));
+        $brands = Brand::all(); // o el método que estés usando para obtener tus productos
+        return view('natier', compact('brands'));
     }
+    
 }
 
 
