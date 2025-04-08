@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -17,12 +18,13 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
 
     <!-- google Fond -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -35,91 +37,91 @@
 
 <body>
     <div id="app">
-    <nav class="navbar navbar-expand-lg bg-equilibria shadow-sm py-3">
-    <div class="container">
-        <!-- Logo -->
-        <a class="navbar-brand fw-bold text-success" href="#">
-            <img src="/images/logoEqui.png" alt="Logo" width="90">
-        </a>
+        <nav class="navbar navbar-expand-lg bg-equilibria shadow-sm py-3">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand fw-bold text-success" href="#">
+                    <img src="/images/logoEquilibriaOriginal.png" alt="Logo" width="90">
+                </a>
 
-        <!-- Botón para colapsar en móviles -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+                <!-- Botón para colapsar en móviles -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <!-- Menú -->
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <!-- Menú izquierdo -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link text-dark fw-semibold" href="{{ route('home') }}">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark fw-semibold" href="{{ route('about') }}">Nosotros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark fw-semibold" href="{{ route('catalogo') }}">Productos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark fw-semibold" href="{{ route('contact') }}">Contacto</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-dark fw-semibold" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Marcas
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('natier') }}">Natier</a></li>
-                        <li><a class="dropdown-item" href="#">Futuro Fungi</a></li>
-                        <li><a class="dropdown-item" href="#">Star Nutrición</a></li>
+                <!-- Menú -->
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <!-- Menú izquierdo -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark fw-semibold" href="{{ route('home') }}"><i class="fa-solid fa-house"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark fw-semibold" href="{{ route('about') }}">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark fw-semibold" href="{{ route('catalogo') }}">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark fw-semibold" href="{{ route('contact') }}">Contacto</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark fw-semibold" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Marcas
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('natier') }}">Natier</a></li>
+                                <li><a class="dropdown-item" href="#">Futuro Fungi</a></li>
+                                <li><a class="dropdown-item" href="#">Star Nutrición</a></li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-            </ul>
 
-            <!-- Menú derecho -->
-            <ul class="navbar-nav ms-auto align-items-center gap-2">
-                <!-- Carrito -->
-                <li class="nav-item">
-                    <a class="nav-link position-relative text-dark" href="{{ route('cart') }}">
-                        <i class="fas fa-shopping-cart fa-lg"></i>
-                        <span
-                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            {{ session('cart') ? count(session('cart')) : 0 }}
-                        </span>
-                    </a>
-                </li>
+                    <!-- Menú derecho -->
+                    <ul class="navbar-nav ms-auto align-items-center gap-2">
+                        <!-- Carrito -->
+                        <li class="nav-item">
+                            <a class="nav-link position-relative text-dark" href="{{ route('cart') }}">
+                                <i class="fas fa-shopping-cart fa-lg"></i>
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    {{ session('cart') ? count(session('cart')) : 0 }}
+                                </span>
+                            </a>
+                        </li>
 
-                @guest
-                    @if (Route::has('login'))
+                        @guest
+                        @if (Route::has('login'))
                         <li class="nav-item">
                             <a class="nav-link text-dark fw-semibold" href="{{ route('login') }}">Iniciar sesión</a>
                         </li>
-                    @endif
-                    @if (Route::has('register'))
+                        @endif
+                        @if (Route::has('register'))
                         <li class="nav-item">
                             <a class="nav-link text-dark fw-semibold" href="{{ route('register') }}">Registrarse</a>
                         </li>
-                    @endif
-                @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-dark fw-semibold" href="#"
-                            role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <form action="{{ route('logout') }}" method="POST">
-                                @csrf
-                                <button type="submit" class="dropdown-item text-danger">Cerrar sesión</button>
-                            </form>
-                        </div>
-                    </li>
-                @endguest
-            </ul>
-        </div>
-    </div>
-</nav>
+                        @endif
+                        @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-dark fw-semibold" href="#"
+                                role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item text-danger">Cerrar sesión</button>
+                                </form>
+                            </div>
+                        </li>
+                        @endguest
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
 
         <main class="py-4">
@@ -184,7 +186,8 @@
 
 
 <!-- Footer -->
-<footer class="bg-light text-dark mt-5 py-5 border-top w-100">
+
+<footer class="bgFooter text-dark mt-5 py-5 border-top w-100">
     <div class="container">
         <div class="row">
             <div class="col-md-4 text-center text-md-start">
@@ -209,11 +212,39 @@
                 <a href="#" class="text-dark"><i class="bi bi-youtube"></i></a>
             </div>
         </div>
-        <div class=" footer text-center mt-3 border-top pt-3">
+
+        <!-- Medios de Pago -->
+        <div class="row mt-4">
+            <div class="col text-center">
+                <h5 class="titulofooter">Medios de Pago</h5>
+                <img src="images/mercado.svg" alt="Mercado Pago" width="90" class="mx-2">
+                <img src="images/visa2.png" alt="Visa" width="50" class="mx-2">
+                <img src="images/master.png" alt="MasterCard" width="50" class="mx-2">
+                <img src="images/pagoFacil.svg" alt="Pago Fácil" width="40" class="mx-2">
+                <img src="images/rapipago.svg" alt="Pago Fácil" width="70" class="mx-2">
+            </div>
+        </div>
+
+
+        <div class="footer text-center mt-3 border-top pt-3 ">
             <p class="mb-0">&copy; 2025 Equilibria. Todos los derechos reservados.</p>
         </div>
+
     </div>
 </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

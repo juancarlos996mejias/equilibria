@@ -77,6 +77,55 @@
     transform: scale(1.05);
 }
 
+.card-img-top.object-fit-cover {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.hero-nosotros {
+    background: linear-gradient(to right, #A1E3F9, #dcedc1); /* azul claro degradado */
+    padding: 4rem 0;
+}
+.hero-nosotros h1 {
+    font-family: "Poppins", sans-serif;
+    color: #0288d1; /* Verde oscuro */
+   
+}
+.seccion-mision {
+  
+    background: linear-gradient(to right,#dcedc1, #A1E3F9 );
+}
+.text-azul {
+    color: #0288d1;
+}
+
+.lead{
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    color:#006838;  
+}
+
+.leadtitulo{
+    font-family: "Poppins", sans-serif;
+    font-weight: 350;
+    color:#006838;     
+}
+
+.tituloPrincipal h1{
+    font-family: "Poppins", sans-serif;
+    color:#0288d1;    
+}
+
+.text-azul{
+    font-family: "Poppins", sans-serif;
+    color:#0288d1;      
+}
+
+.bgFooter{
+    background-color: #D9EAFD;
+}
+
 
 
 
