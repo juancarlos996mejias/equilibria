@@ -47,6 +47,7 @@ Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('car
 Route::patch('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::post('/checkout/process', [CheckoutController::class, 'process'])->name('checkout.process');
+Route::get('/checkout/confirmacion', [CheckoutController::class, 'confirmacion'])->name('checkout.confirmacion');
 Route::get('/natier', [NatierController::class, 'index'])->name('natier');
 Route::get('/brands/{brand?}', [BrandController::class, 'show'])->name('brands');
 
