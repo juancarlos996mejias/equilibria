@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CatalogoController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\NatierController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProductoController;
@@ -44,6 +45,8 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
 Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
 Route::patch('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::post('/checkout/process', [CheckoutController::class, 'process'])->name('checkout.process');
 Route::get('/natier', [NatierController::class, 'index'])->name('natier');
 Route::get('/brands/{brand?}', [BrandController::class, 'show'])->name('brands');
 

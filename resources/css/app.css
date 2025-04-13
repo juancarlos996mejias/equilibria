@@ -158,6 +158,18 @@
     color:brown;
 }
 
+.remove-btn {
+    background-color: white;
+    color: #dc3545; /* color rojo de Bootstrap */
+    border-color: #dc3545;
+    transition: 0.3s ease;
+}
+.remove-btn:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+
 
 
 
