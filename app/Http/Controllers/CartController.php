@@ -7,9 +7,66 @@ use Illuminate\Http\Request;
 class CartController extends Controller
 {
     public function index()
-    {
-        return view('cart.index'); // Debe apuntar a resources/views/cart/index.blade.php
+{
+    $cart = session()->get('cart', []);
+    return view('cart.index', compact('cart'));
+}
+
+public function addToCart(Request $request)
+{
+    $producto = [
+        'id' => $request->id,
+        'nombre' => $request->nombre,
+        'precio' => $request->precio,
+        'imagen' => $request->imagen,
+        'cantidad' => 1,
+    ];
+
+    $cart = session()->get('cart', []);
+
+    if (isset($cart[$producto['id']])) {
+        $cart[$producto['id']]['cantidad']++;
+    } else {
+        $cart[$producto['id']] = $producto;
     }
+
+    session()->put('cart', $cart);
+
+    return redirect()->route('cart')->with('success', 'Producto agregado al carrito');
+}
+
+public function remove($id)
+{
+    $cart = session()->get('cart', []);
+
+    if (isset($cart[$id])) {
+        unset($cart[$id]);
+        session()->put('cart', $cart);
+    }
+
+    return redirect()->route('cart')->with('success', 'Producto eliminado del carrito.');
+}
+
+public function update(Request $request, $id)
+{
+    $cart = session()->get('cart', []);
+
+    if (isset($cart[$id])) {
+        $newQuantity = (int) $request->input('quantity');
+
+        if ($newQuantity > 0) {
+            $cart[$id]['cantidad'] = $newQuantity;
+            session()->put('cart', $cart);
+        }
+    }
+
+    return redirect()->route('cart')->with('success', 'Cantidad actualizada correctamente.');
+}
+
+
+
+
+
 
     public function __construct()
     {

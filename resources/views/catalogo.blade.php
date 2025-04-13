@@ -10,11 +10,18 @@
                 <div class="card h-100 shadow-sm">
                     <img src="{{ asset($producto->imagen) }}" class="card-img-top object-fit-cover" style="height: 200px;" alt="{{ $producto->nombre }}">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title text-success fw-semibold">{{ $producto->nombre }}</h5>
-                        <p class="card-text text-muted">{{ $producto->descripcion }}</p>
+                        <h5 class="nombre-producto">{{ $producto->nombre }}</h5>
+                        <p class="nombre-descripcion">{{ $producto->descripcion }}</p>
                         <div class="mt-auto">
-                            <p class="fw-bold text-primary">$ {{ number_format($producto->precio, 2) }}</p>
-                            <a href="#" class="btn btn-sm btn-success w-100">Agregar al carrito</a>
+                            <p class="tituloPrecio">$ {{ number_format($producto->precio, 2) }}</p>
+                            <form action="{{ route('cart.add') }}" method="POST">
+    @csrf
+    <input type="hidden" name="id" value="{{ $producto->id }}">
+    <input type="hidden" name="nombre" value="{{ $producto->nombre }}">
+    <input type="hidden" name="precio" value="{{ $producto->precio }}">
+    <input type="hidden" name="imagen" value="{{ $producto->imagen }}">
+    <button type="submit" class="btn btn-sm btn-success w-100">Agregar al carrito</button>
+</form>
                         </div>
                     </div>
                 </div>

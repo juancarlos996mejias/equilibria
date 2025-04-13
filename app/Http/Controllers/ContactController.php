@@ -19,7 +19,7 @@ class ContactController extends Controller
             'message' => 'required|min:10'
         ]);
 
-        Mail::to('tuemail@dominio.com')->send(new ContactMail($request->all()));
+        Mail::to('equilibriasuplementos@gmail.com')->send(new ContactMail($request->all()));
 
         return redirect()->route('contact')->with('success', 'Mensaje enviado correctamente.');
     }

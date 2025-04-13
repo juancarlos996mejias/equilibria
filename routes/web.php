@@ -41,6 +41,9 @@ Route::get('/quienes-somos', [PageController::class, 'about'])->name('about');
 Route::get('/catalogo', [PageController::class, 'catalogo'])->name('brands');
 Route::get('/contacto', [PageController::class, 'contact'])->name('contact');
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+Route::patch('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
 Route::get('/natier', [NatierController::class, 'index'])->name('natier');
 Route::get('/brands/{brand?}', [BrandController::class, 'show'])->name('brands');
 

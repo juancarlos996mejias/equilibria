@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="text-center">
-                        <button type="submit" class="btn btn-success w-100">
+                        <button type="submit" class="btn btn-equilibria w-100">
                             <i class="bi bi-envelope"></i> Enviar Mensaje
                         </button>
                     </div>
